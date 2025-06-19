@@ -1,5 +1,13 @@
 {
-  "rewrites": [
-    { "source": "/(.*)", "destination": "/" }
+  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }],
+  "builds": [
+    {
+      "src": "semvoce-view/angular.json",
+      "use": "@vercel/static-build",
+      "config": { "distDir": "semvoce-view/dist/semvoce-view" }
+    }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "semvoce-view/dist/semvoce-view/index.html" }
   ]
 }
