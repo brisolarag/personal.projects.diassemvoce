@@ -1,9 +1,9 @@
 <div class="app-container">
 
   <section class="month-selector">
-    <button matButton="tonal" (click)="previousDay()">dia anterior</button>
+    <button matButton="tonal" (click)="previousDay()" class="back-day-btn"><mat-icon class="arrow-icon">arrow_left</mat-icon></button>
     <span (click)="setToday()" class="label-month">{{formattedDate}}</span>
-    <button matButton="tonal" (click)="nextDay()">proximo dia</button>
+    <button matButton="tonal" (click)="nextDay()"><mat-icon class="arrow-icon">arrow_right</mat-icon></button>
   </section>
 
 

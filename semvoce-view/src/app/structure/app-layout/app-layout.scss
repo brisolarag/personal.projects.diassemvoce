@@ -9,12 +9,17 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  padding: 30px;
   background-image: url('/background/roses-background.jpg');
   background-repeat: repeat;
   background-size: contain;
   background-position: center center;
 }
 
+::ng-deep .arrow-icon {
+  margin: 0 !important;
+  padding: 0 !important;
+}
 
 .month-selector {
   height: 10vh;

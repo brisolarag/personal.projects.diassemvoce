@@ -4,10 +4,11 @@ import { MatDialog } from '@angular/material/dialog';
 import { OQueEuFizModal } from '../../components/modais/oque-eu-fiz-modal/oque-eu-fiz-modal';
 import { RecadoDia } from '../../components/modais/recado-dia/recado-dia';
 import { PictureOfTheDay } from "../../components/picture-of-the-day/picture-of-the-day";
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
   selector: 'app-layout',
-  imports: [MatButtonModule, PictureOfTheDay],
+  imports: [MatButtonModule, PictureOfTheDay, MatIconModule],
   templateUrl: './app-layout.html',
   styleUrl: './app-layout.scss'
 })
