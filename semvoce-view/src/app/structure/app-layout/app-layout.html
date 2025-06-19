@@ -1,0 +1,45 @@
+<div class="app-container">
+
+  <section class="month-selector">
+    <button matButton="tonal" (click)="previousDay()">dia anterior</button>
+    <span (click)="setToday()">{{formattedDate}}</span>
+    <button matButton="tonal" (click)="nextDay()">proximo dia</button>
+  </section>
+
+
+
+
+  @if (isBeforeMinDate(selectedDate))
+  {
+    <section class="picture-of-the-day">
+      <span>Fiz essa aplicacao no dia 19/06, entao as informacoes vao partir dessa data, te amo.</span>
+    </section>
+
+    <section class="message">
+      <button matButton="tonal" disabled>O que eu fiz hoje?</button>
+      <button matButton="tonal" disabled>Recado</button>
+    </section>
+  }
+  @else if (selectedDate > today)
+  {
+    <section class="picture-of-the-day">
+      <span>Para de ser ansiosa, a foto de amanha libera amanha daaan.</span>
+    </section>
+
+    <section class="message">
+      <button matButton="tonal" disabled>O que eu fiz hoje?</button>
+      <button matButton="tonal" disabled>Recado</button>
+    </section>
+  }
+  @else
+  {
+    <section class="picture-of-the-day">
+    </section>
+
+    <section class="message">
+      <button matButton="tonal">O que eu fiz hoje?</button>
+      <button matButton="tonal">Recado</button>
+    </section>
+  }
+
+</div>
