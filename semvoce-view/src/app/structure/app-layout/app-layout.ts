@@ -1,10 +1,13 @@
 import { Component, inject } from '@angular/core';
 import {MatButtonModule} from '@angular/material/button';
 import { MatDialog } from '@angular/material/dialog';
+import { OQueEuFizModal } from '../../components/modais/oque-eu-fiz-modal/oque-eu-fiz-modal';
+import { RecadoDia } from '../../components/modais/recado-dia/recado-dia';
+import { PictureOfTheDay } from "../../components/picture-of-the-day/picture-of-the-day";
 
 @Component({
   selector: 'app-layout',
-  imports: [MatButtonModule],
+  imports: [MatButtonModule, PictureOfTheDay],
   templateUrl: './app-layout.html',
   styleUrl: './app-layout.scss'
 })
@@ -49,11 +52,19 @@ export class AppLayout {
     this.selectedDate = new Date(this.selectedDate);
   }
 
-  // openOQueEuFizModal(data: Date) {
-  //   this.dialog.open(DialogDataExampleDialog, {
-  //     data: {
-  //       animal: 'panda',
-  //     },
-  //   });
-  // }
+  openOQueEuFizModal() {
+    this.dialog.open(OQueEuFizModal, {
+      data: {
+        date: this.selectedDate,
+      },
+    });
+  }
+
+  openRecadoDiaModal() {
+    this.dialog.open(RecadoDia, {
+      data: {
+        date: this.selectedDate
+      }
+    })
+  }
 }

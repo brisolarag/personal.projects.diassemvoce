@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>Recado do dia: {{data?.date | date: 'dd/MM/yyyy' }}</h2>
+
+
+<mat-dialog-content class="mat-typography">
+  <p *ngIf="diaInfo(); else noData">
+    {{ diaInfo()?.recadoDia }}
+  </p>
+
+  <ng-template #noData>
+    <p>Nenhum recado disponível para esta data.</p>
+  </ng-template>
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+  <button matButton mat-dialog-close>Fechar</button>
+</mat-dialog-actions>

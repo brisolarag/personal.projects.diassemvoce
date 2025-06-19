@@ -5,17 +5,18 @@ import { DiaInfoModel, InfoDiaService } from '../../../services/info-dia-service
 import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-oque-eu-fiz-modal',
+  selector: 'app-recado-dia',
   imports: [MatDialogModule, MatButtonModule, CommonModule],
-  templateUrl: './oque-eu-fiz-modal.html',
-  styleUrl: './oque-eu-fiz-modal.scss',
+  templateUrl: './recado-dia.html',
+  styleUrl: './recado-dia.scss',
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class OQueEuFizModal implements OnInit {
-   private infoDService = inject(InfoDiaService);
+export class RecadoDia implements OnInit {
+  private infoDService = inject(InfoDiaService);
   data = inject(MAT_DIALOG_DATA);
 
   diaInfo = signal<DiaInfoModel | null>(null);
+
 
   async ngOnInit(): Promise<void> {
     if (this.data?.date instanceof Date) {
@@ -26,7 +27,4 @@ export class OQueEuFizModal implements OnInit {
     }
   }
 
-  trackByIndex(index: number): number {
-    return index;
-  }
 }

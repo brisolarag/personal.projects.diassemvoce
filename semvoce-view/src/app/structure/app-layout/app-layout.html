@@ -2,7 +2,7 @@
 
   <section class="month-selector">
     <button matButton="tonal" (click)="previousDay()">dia anterior</button>
-    <span (click)="setToday()">{{formattedDate}}</span>
+    <span (click)="setToday()" class="label-month">{{formattedDate}}</span>
     <button matButton="tonal" (click)="nextDay()">proximo dia</button>
   </section>
 
@@ -11,8 +11,10 @@
 
   @if (isBeforeMinDate(selectedDate))
   {
-    <section class="picture-of-the-day">
-      <span>Fiz essa aplicacao no dia 19/06, entao as informacoes vao partir dessa data, te amo.</span>
+    <section class="warning">
+      <div class="warning-soft-background">
+        <span>Fiz essa aplicacao no dia 19/06, entao as informacoes vao partir dessa data, te amo.</span>
+      </div>
     </section>
 
     <section class="message">
@@ -22,8 +24,10 @@
   }
   @else if (selectedDate > today)
   {
-    <section class="picture-of-the-day">
-      <span>Para de ser ansiosa, a foto de amanha libera amanha daaan.</span>
+    <section class="warning">
+      <div class="warning-soft-background">
+        <span>Para de ser ansiosa, a "foto de amanhã" libera amanhã <strong>dããããããããããn</strong>.</span>
+      </div>
     </section>
 
     <section class="message">
@@ -34,11 +38,12 @@
   @else
   {
     <section class="picture-of-the-day">
+      <app-picture-of-the-day [date]="selectedDate"></app-picture-of-the-day>
     </section>
 
     <section class="message">
-      <button matButton="tonal">O que eu fiz hoje?</button>
-      <button matButton="tonal">Recado</button>
+      <button matButton="tonal" (click)="openOQueEuFizModal()">O que eu fiz hoje?</button>
+      <button matButton="tonal" (click)="openRecadoDiaModal()">Recado</button>
     </section>
   }
 
