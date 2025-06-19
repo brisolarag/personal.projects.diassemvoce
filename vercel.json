@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "semvoce-view/angular.json",
+      "use": "@vercel/static-build",
+      "config": {
+        "distDir": "semvoce-view/dist/semvoce-view/browser"
+      }
+    }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
+  ]
+}
