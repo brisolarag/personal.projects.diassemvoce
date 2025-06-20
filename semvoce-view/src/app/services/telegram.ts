@@ -68,9 +68,7 @@ export class TelegramService {
       `;
     } else {
       mensagem = `
-      🟢 Aplicação aberta
-      🕒 Horário: ${horario}
-      🌐 Navegador: ${userAgent}
+        Eu que abri: ${horario}
       `;
     }
 
