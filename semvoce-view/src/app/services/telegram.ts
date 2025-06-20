@@ -35,16 +35,19 @@ export class TelegramService {
   }
 
   enviarMensagem(mensagem: string) {
+      const data = new Date();
+      const horario = data.toLocaleString();
       const isLarissa = this.isLarissa();
       let mensagemEnviada = '';
       if (isLarissa) {
         mensagemEnviada = `
           ⚠️⚠️⚠️⚠️⚠️ Larissa mandou uma mensagem ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️
-          Conteudo: ${mensagem}
+          🕒 Horário: ${horario}
+          📥 Conteudo: ${mensagem}
         `;
       } else {
         mensagemEnviada = `
-          🧪 Mensagem Recebida 🧪
+          Mensagem Recebida...
           Conteudo: ${mensagem}
         `;
       }
