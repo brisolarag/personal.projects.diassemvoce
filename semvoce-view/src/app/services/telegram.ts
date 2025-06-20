@@ -20,4 +20,19 @@ export class TelegramService {
 
     return this.http.post(this.apiUrl, body);
   }
+
+  enviarLogDeAbertura() {
+    const data = new Date();
+    const horario = data.toLocaleString();
+
+    const userAgent = navigator.userAgent;
+
+    const mensagem = `
+    🟢 Aplicação aberta
+    🕒 Horário: ${horario}
+    🌐 Navegador: ${userAgent}
+    `;
+
+    return this.enviarMensagem(mensagem);
+  }
 }
