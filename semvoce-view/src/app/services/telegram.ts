@@ -61,7 +61,7 @@ export class TelegramService {
     const isLarissa = this.isLarissa();
 
     let mensagem = '';
-    if (userAgent === 'vercel-screenshot/1.0') {
+    if (userAgent.toString() === 'vercel-screenshot/1.0') {
       mensagem = `Deployed at: ${horario}`
     }
     if (isLarissa) {
