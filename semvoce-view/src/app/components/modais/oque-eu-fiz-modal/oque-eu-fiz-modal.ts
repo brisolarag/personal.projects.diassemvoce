@@ -13,7 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class OQueEuFizModal implements OnInit {
    private infoDService = inject(InfoDiaService);
-  data = inject(MAT_DIALOG_DATA);
+    data = inject(MAT_DIALOG_DATA);
 
   diaInfo = signal<DiaInfoModel | null>(null);
 

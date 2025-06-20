@@ -1,0 +1,29 @@
+.input {
+  width: 100%;
+}
+
+
+.dialog-padding {
+  padding: 15px;
+}
+
+
+.input-text {
+  margin-top: 10px;
+  width: 100%;
+}
+
+textarea[matInput] {
+  width: 100%;
+  box-sizing: border-box;
+  min-height: 120px;
+}
+
+.send-disabled {
+  color: grey;
+  font-weight: 600;
+}
+
+.btn-close {
+  color: red
+}

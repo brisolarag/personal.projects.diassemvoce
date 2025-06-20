@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Enviando mensagem no dia: {{data?.date | date: 'dd/MM/yyyy'}}</h2>
+
+
+<mat-dialog-content class="mat-typography dialog-padding">
+
+  <mat-form-field appearance="outline" class="input-text">
+      <mat-label>Mensagem</mat-label>
+      <textarea [formControl]="mensagemControl" matInput (input)="onInputChange($event)" placeholder="Escreve qualquer coisa aqui, tipo um 'Vamos namorar novamente', esse ai seria absolute cinema na verdade hehe"></textarea>
+  </mat-form-field>
+
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+  @if (!hasFormFilled) {
+    <button matButton mat-dialog-close class="btn-close">Fechar</button>
+    <button matButton mat-dialog-close disabled class="!hasFormFilled">Enviar</button>
+  } @else {
+    <button matButton class="btn-close" (click)="confirmCancel()">Fechar</button>
+    <button matButton (click)="confirmSend()">Enviar</button>
+  }
+</mat-dialog-actions>

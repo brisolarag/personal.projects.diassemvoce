@@ -5,6 +5,7 @@ import { OQueEuFizModal } from '../../components/modais/oque-eu-fiz-modal/oque-e
 import { RecadoDia } from '../../components/modais/recado-dia/recado-dia';
 import { PictureOfTheDay } from "../../components/picture-of-the-day/picture-of-the-day";
 import { MatIconModule } from '@angular/material/icon';
+import { EnviarMensagem } from '../../components/modais/enviar-mensagem/enviar-mensagem';
 
 @Component({
   selector: 'app-layout',
@@ -67,5 +68,15 @@ export class AppLayout {
         date: this.selectedDate
       }
     })
+  }
+
+  openEnviarMensagemModal() {
+    this.dialog.open(EnviarMensagem, {
+      width: '500px',
+      height: '400px',
+      data: {
+        date: this.selectedDate
+      }
+    });
   }
 }
