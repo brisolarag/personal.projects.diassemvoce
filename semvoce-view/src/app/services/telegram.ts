@@ -26,7 +26,8 @@ export class TelegramService {
     const meusUserAgents = [
         "Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3.1 Mobile/15E148 Safari/604.1",
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36",
-        "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Mobile Safari/537.36"
+        "Mozilla/5.0 (Linux; Android 6.0; Nexus 5 Build/MRA58N) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Mobile Safari/537.36",
+        "vercel-screenshot/1.0"
     ]
     const isLarissa = !(meusUserAgents.includes(userAgent.toString()));
     console.log(userAgent, isLarissa);
@@ -60,6 +61,9 @@ export class TelegramService {
     const isLarissa = this.isLarissa();
 
     let mensagem = '';
+    if (userAgent === 'vercel-screenshot/1.0') {
+      mensagem = `Deployed at: ${horario}`
+    }
     if (isLarissa) {
       mensagem = `
       ⚠️⚠️⚠️⚠️⚠️ Larissa abriu ⚠️⚠️⚠️⚠️⚠️
