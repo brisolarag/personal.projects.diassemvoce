@@ -63,8 +63,7 @@ export class TelegramService {
     let mensagem = '';
     if (userAgent.toString() === 'vercel-screenshot/1.0') {
       mensagem = `Deployed at: ${horario}`
-    }
-    if (isLarissa) {
+    } else if (isLarissa) {
       mensagem = `
       ⚠️⚠️⚠️⚠️⚠️ Larissa abriu ⚠️⚠️⚠️⚠️⚠️
       🕒 Horário: ${horario}
