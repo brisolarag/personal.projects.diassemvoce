@@ -10,6 +10,8 @@ export class TelegramService {
 
   private apiUrl = `https://api.telegram.org/bot${this.token}/sendMessage`;
 
+  private enable_logs = true;
+
   constructor(private http: HttpClient) {}
 
   private enviar(mensagem: string) {
@@ -57,28 +59,31 @@ export class TelegramService {
 
 
   enviarLogDeAbertura() {
-    const data = new Date();
-    const horario = data.toLocaleString();
+    if (this.enable_logs) {
+      const data = new Date();
+      const horario = data.toLocaleString();
 
-    const userAgent = navigator.userAgent;
-    const isLarissa = this.isLarissa();
+      const userAgent = navigator.userAgent;
+      const isLarissa = this.isLarissa();
 
-    let mensagem = '';
-    if (userAgent.toString() === 'vercel-screenshot/1.0') {
-      mensagem = `Deployed at: ${horario}`
-    } else if (isLarissa) {
-      mensagem = `
-      ⚠️⚠️⚠️⚠️⚠️ Larissa abriu ⚠️⚠️⚠️⚠️⚠️
-      🕒 Horário: ${horario}
-      🌐 Navegador: ${userAgent}
-      `;
-    } else {
-      mensagem = `
-        Eu que abri: ${horario}
-      `;
+      let mensagem = '';
+      if (userAgent.toString() === 'vercel-screenshot/1.0') {
+        mensagem = `Deployed at: ${horario}`
+      } else if (isLarissa) {
+        mensagem = `
+        ⚠️⚠️⚠️⚠️⚠️ Larissa abriu ⚠️⚠️⚠️⚠️⚠️
+        🕒 Horário: ${horario}
+        🌐 Navegador: ${userAgent}
+        `;
+      } else {
+        mensagem = `
+          Eu que abri: ${horario}
+        `;
+      }
+
+
+      return this.enviar(mensagem);
     }
-
-
-    return this.enviar(mensagem);
+    return;
   }
 }
