@@ -13,9 +13,16 @@ export class TelegramService {
   constructor(private http: HttpClient) {}
 
   enviarMensagem(mensagem: string) {
+  const userAgent = navigator.userAgent;
+  const possivelmenteLarissa = userAgent != ' Mozilla/5.0 (iPhone; CPU iPhone OS 18_3_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/18.3.1 Mobile/15E148 Safari/604.1'; 
+  const mensagemEnviada= `
+    📥 Mensagem Recebida: Larrisa? ${possivelmenteLarissa}
+    Conteudo: ${mensagem}
+  `;
+    
     const body = {
       chat_id: this.chatId,
-      text: mensagem,
+      text: mensagemEnviada,
     };
 
     return this.http.post(this.apiUrl, body);
