@@ -14,7 +14,7 @@ export class App implements OnInit {
   protected title = 'semvoce-view';
 
   ngOnInit(): void {
-    this.telegramService.enviarLogDeAbertura().subscribe({
+    this.telegramService.enviarLogDeAbertura()?.subscribe({
       next: () => console.log('Log enviado com sucesso'),
       error: (err) => console.error('Erro ao enviar log', err)
     });
