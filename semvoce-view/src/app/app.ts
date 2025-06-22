@@ -11,7 +11,7 @@ import { TelegramService } from './services/telegram';
 })
 export class App implements OnInit {
   constructor(private telegramService: TelegramService) {}
-  protected title = 'semvoce-view';
+  protected title = 'Sem Você...';
 
   ngOnInit(): void {
     this.telegramService.enviarLogDeAbertura()?.subscribe({
